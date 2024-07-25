@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        
+      body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 17px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-container {
+    position: relative;
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-icons {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.product-icon {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    text-align: center;
+    margin-top: 16px;
+}
+.cart-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #888;
+}
+
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+    flex: 3;
+    margin-right: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 7px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(56, 54, 54, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cart-item-price {
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.quantity-minus, .quantity-plus {
+    background-color: rgba(221, 221, 221, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-remove {
+    margin-left: 20px;
+    cursor: pointer;
+    color: rgb(184, 179, 179);
+}
+
+.cart-summary {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: rgba(56, 54, 54, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.total-quantity, .total-amount {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.checkout-button {
+    background-color: #31045c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #3a0869;
+}
+
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .total-quantity, .total-amount {
+        text-align: center;
+
+
+    }
+
+    .back-to-shop {
+ display: none;
+}
+
+
+}
+/* styles.css */
+.back-to-shop {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the page */
+    right: 20px;  /* Distance from the right side of the page */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 1rem; /* Font size */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for a slight 3D effect */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.back-to-shop:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Popup styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.popup button {
+    margin: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <h1 class="cart-title">Shopping Cart</h1>
+    <div class="cart-container">
+        <div class="cart-items"></div>
+        <div class="cart-summary">
+            <div class="total-quantity">Total Quantity: 0</div>
+            <div class="total-amount">Total Amount: $0.00</div>
+            <button class="checkout-button" >Checkout</button>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p>Do you want to download your cart page as an image?</p>
+            <button id="download-button">Download</button>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+    <div class="bottom-nav">
+        <div class="sidebar-item" id="home-item" onclick="navigateTo('index.html')">
+          <i class="fas fa-home sidebar-icon" ></i>
+          <span class="sidebar-text">Home</span>
+        </div>
+        <div class="sidebar-item">
+          <i class="fas fa-money sidebar-icon"></i>
+          <span class="sidebar-text">Checkout</span>
+        </div>
+        <div class="sidebar-item" id="contactIconMobile">
+          <i class="fas fa-envelope sidebar-icon"></i>
+          <span class="sidebar-text">Contact</span>
+        </div>
+        <div class="sidebar-item" id="aboutIconMobile">
+          <i class="fas fa-info-circle sidebar-icon"></i>
+          <span class="sidebar-text">About</span>
+        </div>
+        <div class="sidebar-item" id="cartIconMobile">
+          <i class="fas fa-shopping-bag sidebar-icon"></i>
+          <span class="sidebar-text">Cart</span>
+          <span class="cart-indicator" id="cartCountMobile">0</span>
+        </div>
+      </div>
+     
+      <div class="mode-toggle" onclick="toggleMode()"> <i class="fas fa-star "></i></div>
+      </div>
+      <a href="index.html" class="back-to-shop">Back to Shop</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const totalQuantityContainer = document.querySelector('.total-quantity');
+            const totalAmountContainer = document.querySelector('.total-amount');
+    
+            const updateCartSummary = () => {
+                const totalQuantity = cart.reduce((sum, product) => sum + product.quantity, 0);
+                const totalAmount = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
+                
+                totalQuantityContainer.textContent = `Total Quantity: ${totalQuantity}`;
+                totalAmountContainer.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+            };
+    
+            const renderCartItems = () => {
+                cartItemsContainer.innerHTML = '';
+                cart.forEach(product => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${product.name}</div>
+                            <div class="cart-item-price">$${product.price.toFixed(2)}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-minus" data-id="${product.id}">-</button>
+                                <span>${product.quantity}</span>
+                                <button class="quantity-plus" data-id="${product.id}">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-remove" data-id="${product.id}"><i class="fas fa-trash"></i></div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                updateCartSummary();
+            };
+    
+            const handleQuantityChange = (productId, change) => {
+                const product = cart.find(product => product.id === productId);
+                if (product) {
+                    product.quantity += change;
+                    if (product.quantity <= 0) {
+                        cart = cart.filter(p => p.id !== productId);
+                    }
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCartItems();
+            };
+    
+            const handleRemoveItem = (productId) => {
+                cart = cart.filter(product => product.id !== productId);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCartItems();
+            };
+    
+            cartItemsContainer.addEventListener('click', (event) => {
+                if (event.target.classList.contains('quantity-plus')) {
+                    const productId = event.target.getAttribute('data-id');
+                    handleQuantityChange(productId, 1);
+                } else if (event.target.classList.contains('quantity-minus')) {
+                    const productId = event.target.getAttribute('data-id');
+                    handleQuantityChange(productId, -1);
+                } else if (event.target.closest('.cart-item-remove')) {
+                    const productId = event.target.closest('.cart-item-remove').getAttribute('data-id');
+                    handleRemoveItem(productId);
+                }
+            });
+    
+            renderCartItems();
+        });
+
+        // script.js
+function navigateTo(url) {
+    window.location.href = url;
+}
+// script.js
+function capturePage() {
+    html2canvas(document.body).then(canvas => {
+        // Convert the canvas to a data URL
+        const image = canvas.toDataURL('image/png');
+
+        // Set the image source and download link
+        document.getElementById('captured-image').src = image;
+        document.getElementById('download-link').href = image;
+
+        // Show the popup
+        document.getElementById('popup').classList.remove('hidden');
+    });
+}
+
+function closePopup() {
+    document.getElementById('popup').classList.add('hidden');
+}
+
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const checkoutButton = document.querySelector('.checkout-button');
+    const popup = document.getElementById('popup');
+    const closePopupButton = document.getElementById('close-popup');
+    const downloadButton = document.getElementById('download-button');
+    const cartContainer = document.querySelector('.cart-container');
+
+    // Show the popup when checkout button is clicked
+    checkoutButton.addEventListener('click', () => {
+        popup.style.display = 'flex';
+    });
+
+    // Close the popup
+    closePopupButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Download cart container as image
+    downloadButton.addEventListener('click', () => {
+        html2canvas(cartContainer).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'cart.png';
+            link.click();
+        });
+    });
+});
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Simulate a delay to demonstrate the preloader
+      setTimeout(function() {
+          document.getElementById('preloader').style.display = 'none';
+          document.getElementById('content').style.display = 'block';
+      }, 20000); // Adjust the timeout duration as needed
+  });
+  
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="all.js"></script>
+</body>
+</html>
