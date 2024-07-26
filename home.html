@@ -1,0 +1,298 @@
+<html><head><base href="https://websim.ai/generated/YOU%20FORGOT%20TO%20INCORPORATE%20BLOG%20POST%20SECTION%20ANDABOUT%20US%20SECTION">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegance Apparel | Premium Clothing Brand</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .hero-section {
+      background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .collection-card, .blog-card {
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .collection-card:hover, .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+
+    .mobile-menu {
+      transition: max-height 0.3s ease-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu.active {
+      max-height: 1000px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 smooth-scroll">
+  <header class="bg-white shadow-md fixed w-full z-10">
+    <nav class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-gray-800">Elegance Apparel</a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#collections" class="text-gray-600 hover:text-gray-800 transition duration-300">Collections</a>
+          <a href="#about" class="text-gray-600 hover:text-gray-800 transition duration-300">About</a>
+          <a href="#blog" class="text-gray-600 hover:text-gray-800 transition duration-300">Blog</a>
+          <a href="#contact" class="text-gray-600 hover:text-gray-800 transition duration-300">Contact</a>
+          <a href="https://websim.ai/generated/store" class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition duration-300">Shop Now</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <a href="#collections" class="block py-2 px-4 text-sm hover:bg-gray-200">Collections</a>
+        <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200">About</a>
+        <a href="#blog" class="block py-2 px-4 text-sm hover:bg-gray-200">Blog</a>
+        <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+        <a href="https://websim.ai/generated/store" class="block py-2 px-4 text-sm hover:bg-gray-200">Shop Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section h-screen flex items-center justify-center text-white relative">
+      <div class="text-center z-10">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4">Elegance Redefined</h1>
+        <p class="text-xl md:text-2xl mb-8">Discover our latest collection of premium clothing</p>
+        <a href="#collections" class="bg-white text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Explore Collections</a>
+      </div>
+    </section>
+
+    <section id="collections" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Our Collections</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="collection-card bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Woman wearing a stylish black dress, fashion photography" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80" class="w-full h-64 object-cover" width="720" height="480">
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Evening Elegance</h3>
+              <p class="text-gray-700 text-base mb-4">Sophisticated dresses for unforgettable nights.</p>
+              <a href="#" class="text-black hover:text-gray-700 font-semibold">View Collection</a>
+            </div>
+          </div>
+          <div class="collection-card bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Man wearing a tailored suit, business attire" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80" class="w-full h-64 object-cover" width="720" height="480">
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Business Chic</h3>
+              <p class="text-gray-700 text-base mb-4">Professional attire for the modern workplace.</p>
+              <a href="#" class="text-black hover:text-gray-700 font-semibold">View Collection</a>
+            </div>
+          </div>
+          <div class="collection-card bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Person wearing casual streetwear, urban fashion" src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80" class="w-full h-64 object-cover" width="720" height="480">
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Urban Comfort</h3>
+              <p class="text-gray-700 text-base mb-4">Stylish and comfortable everyday wear.</p>
+              <a href="#" class="text-black hover:text-gray-700 font-semibold">View Collection</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">About Elegance Apparel</h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <img alt="Fashion designer working in a studio, creative process" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80" class="rounded-lg shadow-lg" width="720" height="480">
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <p class="text-gray-700 text-lg mb-6">At Elegance Apparel, we believe that clothing is more than just fabric – it's an expression of individuality and confidence. Our dedicated team of designers and artisans work tirelessly to create timeless pieces that combine style, comfort, and quality.</p>
+            <p class="text-gray-700 text-lg mb-6">Founded in 2010, our brand has grown from a small boutique to a globally recognized name in fashion. We take pride in our commitment to sustainable practices and ethical manufacturing, striving to make a positive impact on both the fashion industry and the world around us.</p>
+            <p class="text-gray-700 text-lg mb-6">Our mission is to empower individuals to express their unique style while feeling confident and comfortable. We believe that when you look good, you feel good, and that confidence shines through in everything you do.</p>
+            <a href="#" class="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition duration-300">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Latest from Our Blog</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="blog-card bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Fashion week runway show" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="w-full h-48 object-cover" width="720" height="480">
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Fashion Week Highlights: Spring/Summer 2023</h3>
+              <p class="text-gray-700 text-base mb-4">Discover the hottest trends from this year's fashion week...</p>
+              <a href="#" class="text-black hover:text-gray-700 font-semibold">Read More</a>
+            </div>
+          </div>
+          <div class="blog-card bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Sustainable fashion materials" src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="w-full h-48 object-cover" width="720" height="480">
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">The Future of Sustainable Fashion</h3>
+              <p class="text-gray-700 text-base mb-4">Exploring eco-friendly materials and ethical production...</p>
+              <a href="#" class="text-black hover:text-gray-700 font-semibold">Read More</a>
+            </div>
+          </div>
+          <div class="blog-card bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Woman styling an outfit" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="w-full h-48 object-cover" width="720" height="480">
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">5 Ways to Style Your Favorite Blazer</h3>
+              <p class="text-gray-700 text-base mb-4">Versatile styling tips for this wardrobe essential...</p>
+              <a href="#" class="text-black hover:text-gray-700 font-semibold">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Get in Touch</h2>
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+            <p class="mb-2"><strong>Address:</strong> 123 Fashion Avenue, New York, NY 10001</p>
+            <p class="mb-2"><strong>Phone:</strong> (555) 123-4567</p>
+            <p class="mb-2"><strong>Email:</strong> info@eleganceapparel.com</p>
+            <p class="mb-4"><strong>Hours:</strong> Monday - Friday: 9am - 6pm</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <img alt="Elegant clothing store interior" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="w-full rounded-lg shadow-lg" width="700" height="467">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/4 text-center md:text-left">
+          <h5 class="uppercase mb-6 font-bold">Company</h5>
+          <ul class="mb-4">
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">About Us</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Careers</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Press</a>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 text-center md:text-left">
+          <h5 class="uppercase mb-6 font-bold">Collections</h5>
+          <ul class="mb-4">
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Evening Elegance</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Business Chic</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Urban Comfort</a>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 text-center md:text-left">
+          <h5 class="uppercase mb-6 font-bold">Help</h5>
+          <ul class="mb-4">
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">FAQ</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Shipping</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Returns</a>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 text-center md:text-left">
+          <h5 class="uppercase mb-6 font-bold">Connect</h5>
+          <ul class="mb-4">
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Facebook</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Instagram</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline text-gray-400 hover:text-white transition duration-300">Twitter</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto px-6 mt-8 text-center">
+      <p class="text-sm text-gray-400">
+        © 2023 Elegance Apparel. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+
+        // Close mobile menu if it's open
+        if (mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body></html>
