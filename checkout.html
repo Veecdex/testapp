@@ -1,0 +1,176 @@
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout Page</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.min.js" defer></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+  [x-cloak] { display: none !important; }
+  .custom-file-upload {
+    border: 2px dashed #cbd5e0;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .custom-file-upload:hover {
+    border-color: #4a5568;
+  }
+  .spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #ffffff;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .custom-input {
+    background-color: #f0f4f8;
+    border: 1px solid #e2e8f0;
+    color: #2d3748;
+  }
+  .custom-input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+</style>
+</head>
+<body x-data="{ 
+  darkMode: false,
+  showSuccessPage: false,
+  submitLoading: false,
+  showAlert: false
+}" :class="{ 'bg-gray-100': !darkMode, 'bg-black': darkMode }">
+  <div class="container mx-auto px-4 py-8" x-show="!showSuccessPage">
+    <div class="flex items-center justify-between mb-8">
+      <button class="p-2 rounded-full" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </button>
+      <h1 class="text-3xl font-bold" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Checkout</h1>
+      <button @click="darkMode = !darkMode" class="p-2 rounded-full" :class="{ 'bg-gray-200': !darkMode, 'bg-gray-700': darkMode }">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+    </div>
+    
+    <div class="flex flex-wrap -mx-4">
+      <div class="w-full md:w-1/2 px-4 mb-8">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6" :class="{ 'bg-white': !darkMode, 'bg-gray-800': darkMode }">
+          <h2 class="text-2xl font-bold mb-4" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Payment Details</h2>
+          <p class="mb-4" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">Make a bank transfer to any of the bank details below:</p>
+          <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded" :class="{ 'bg-gray-100': !darkMode, 'bg-gray-700': darkMode }">
+            <p :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Bank: Example Bank</p>
+            <p :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Account Number: 1234567890</p>
+            <p :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Sort Code: 12-34-56</p>
+          </div>
+          
+          <div x-data="{ receipt: null, cart: null }" class="space-y-4">
+            <div>
+              <label for="receipt" class="custom-file-upload w-full text-center" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">
+                <span x-text="receipt ? 'Receipt uploaded' : 'Upload receipt of payment (PNG or JPG)'"></span>
+                <input type="file" id="receipt" class="hidden" @change="receipt = $event.target.files[0]" accept=".png,.jpg,.jpeg">
+              </label>
+            </div>
+            
+            <div>
+              <label for="cart" class="custom-file-upload w-full text-center" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">
+                <span x-text="cart ? 'Cart details uploaded' : 'Upload cart details (PNG or JPG)'"></span>
+                <input type="file" id="cart" class="hidden" @change="cart = $event.target.files[0]" accept=".png,.jpg,.jpeg">
+              </label>
+            </div>
+            
+            <button 
+              @click="submitPayment"
+              :disabled="!receipt || !cart || submitLoading"
+              class="w-full font-bold py-2 px-4 rounded transition duration-300 ease-in-out flex items-center justify-center"
+              :class="{
+                'bg-blue-500 hover:bg-blue-600': receipt && cart && !submitLoading,
+                'bg-gray-300 cursor-not-allowed': !receipt || !cart || submitLoading,
+                'text-white': true
+              }"
+            >
+              <span x-show="!submitLoading">Submit</span>
+              <div x-show="submitLoading" class="spinner mr-2"></div>
+              <span x-show="submitLoading">Processing...</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w-full md:w-1/2 px-4 mb-8">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6" :class="{ 'bg-white': !darkMode, 'bg-gray-800': darkMode }">
+          <h2 class="text-2xl font-bold mb-4" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Shipping Details</h2>
+          <div class="flex items-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 18v-7a2 2 0 012-2h14a2 2 0 012 2v7m-2-7H5m18 0v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7m2 7h14M5 16h14" />
+            </svg>
+            <p class="text-sm font-semibold" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">Shipping fee on customer</p>
+          </div>
+          <form x-data="{ name: '', email: '', phone: '' }" @submit.prevent="submitForm">
+            <div class="mb-4">
+              <label for="name" class="block mb-2" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">Name</label>
+              <input type="text" id="name" x-model="name" class="w-full px-3 py-2 rounded-md custom-input" required>
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block mb-2" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">Email</label>
+              <input type="email" id="email" x-model="email" class="w-full px-3 py-2 rounded-md custom-input" required>
+            </div>
+            <div class="mb-4">
+              <label for="phone" class="block mb-2" :class="{ 'text-gray-600': !darkMode, 'text-gray-400': darkMode }">Phone</label>
+              <input type="tel" id="phone" x-model="phone" class="w-full px-3 py-2 rounded-md custom-input" required>
+            </div>
+            <button type="submit" class="w-full bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-300 ease-in-out">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Page -->
+  <div x-show="showSuccessPage" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center" :class="{ 'bg-white': !darkMode, 'bg-gray-800': darkMode }">
+      <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <h2 class="text-2xl font-bold mb-4" :class="{ 'text-gray-800': !darkMode, 'text-gray-200': darkMode }">Order Successful</h2>
+      <button @click="showSuccessPage = false" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+        OK
+      </button>
+    </div>
+  </div>
+
+  <!-- Alert -->
+  <div x-show="showAlert" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
+    Payment details sent successfully
+  </div>
+
+  <script>
+    function submitPayment() {
+      this.submitLoading = true;
+      setTimeout(() => {
+        this.submitLoading = false;
+        this.showAlert = true;
+        setTimeout(() => {
+          this.showAlert = false;
+        }, 3000);
+      }, 2000);
+    }
+
+    function submitForm() {
+      this.showSuccessPage = true;
+    }
+  </script>
+</body>
+</html>
