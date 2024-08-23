@@ -1,0 +1,749 @@
+<html><head><base href="https://educationdashboard.com/%20REDIT%20THIS%20PAGE%20GIVEN%20IT%20A%20MORE%20MODERN%20VISUAL%20UI%20UX%20RESPONSIVE%20DESIGN%20USE%20ICONS%20USE%20HOVERING%20ANIMATIONS">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduDash - Modern Education Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5f7fa;
+            --text-color: #333;
+            --sidebar-width: 250px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+    
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+    
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            transition: var(--transition);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+    
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+    
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+    
+        .brand-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+    
+        .sidebar-menu {
+            list-style-type: none;
+        }
+    
+        .sidebar-menu li {
+            margin-bottom: 15px;
+        }
+    
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+    
+        .sidebar-menu a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+    
+        .sidebar-menu i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+    
+        .main-content {
+            flex-grow: 1;
+            margin-left: var(--sidebar-width);
+            padding: 30px;
+            position: relative;
+        }
+    
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            border-radius: 15px;
+        }
+    
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+    
+        .user-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+    
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .user-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0;
+        }
+    
+        .user-address {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
+        }
+    
+        .gen-rem-container {
+            display: flex;
+            gap: 20px;
+        }
+    
+        .gen-rem-box {
+            background-color: var(--secondary-color);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+    
+        .gen-rem-box:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+    
+        .gen-rem-title {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+    
+        .gen-rem-value {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+    
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+    
+        .action-containers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+    
+        .action-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+    
+        .action-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+    
+        .action-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+    
+        .action-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+    
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+    
+        .floating-button:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+    
+        .set-questions, .edit-questions {
+            display: none;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            margin-top: 30px;
+        }
+    
+        .set-questions h2, .edit-questions h2 {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 1.8em;
+        }
+    
+        .form-group {
+            margin-bottom: 25px;
+        }
+    
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+    
+        .form-group select, .form-group input[type="text"], .form-group input[type="number"], .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: var(--transition);
+            background-color: #f9f9f9;
+            font-family: 'Poppins', sans-serif;
+        }
+    
+        .form-group select:focus, .form-group input[type="text"]:focus, .form-group input[type="number"]:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+    
+        .set-questions-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+    
+        .set-questions-btn:hover {
+            background-color: #3a7bc8;
+            transform: translateY(-2px);
+        }
+    
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: none;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+    
+        .back-button:hover {
+            color: #3a7bc8;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+        }
+    
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            animation: modalFadeIn 0.3s;
+        }
+    
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        .question-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+    
+        .question-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        .question-info {
+            flex-grow: 1;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+    
+        .edit-icon {
+            cursor: pointer;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.3em;
+            transition: var(--transition);
+        }
+    
+        .edit-icon:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+    
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+    
+        .status-indicator.unedited {
+            background-color: #e74c3c;
+        }
+    
+        .status-indicator.edited {
+            background-color: #2ecc71;
+        }
+    
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 80px;
+            }
+    
+            .sidebar .brand-name, .sidebar-menu span {
+                display: none;
+            }
+    
+            .main-content {
+                margin-left: 80px;
+            }
+    
+            .action-containers {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: var(--sidebar-width);
+            }
+    
+            .sidebar.active {
+                transform: translateX(0);
+            }
+    
+            .sidebar .brand-name, .sidebar-menu span {
+                display: inline;
+            }
+    
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1001;
+            }
+    
+            .main-content {
+                margin-left: 0;
+                padding-top: 80px;
+            }
+    
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            .user-info {
+                margin-bottom: 15px;
+            }
+    
+            .gen-rem-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+    
+            .action-containers {
+                grid-template-columns: 1fr;
+            }
+    
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 30px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <aside class="sidebar" id="sidebar">
+                <div class="logo-container">
+                    <svg class="logo" viewBox="0 0 100 100" width="40" height="40">
+                        <circle cx="50" cy="50" r="45" fill="#4a90e2"/>
+                        <text x="50" y="60" font-size="40" text-anchor="middle" fill="white">ED</text>
+                    </svg>
+                    <span class="brand-name">EduDash</span>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                    <li><a href="#"><i class="fas fa-book"></i><span>Courses</span></a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i><span>Schedule</span></a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i><span>Analytics</span></a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+                </ul>
+            </aside>
+            <main class="main-content">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <nav class="top-nav">
+                    <div class="user-info">
+                        <img src="https://educationdashboard.com/user-avatar.jpg" alt="Circular user profile image" class="user-image" width="50" height="50">
+                        <div class="user-details">
+                            <h2 class="user-name">John Doe</h2>
+                            <p class="user-address">123 Education St, Learning City, 12345</p>
+                        </div>
+                    </div>
+                    <div class="gen-rem-container">
+                        <div class="gen-rem-box">
+                            <span class="gen-rem-title">Premium Gen Rem:</span>
+                            <span class="gen-rem-value">0</span>
+                        </div>
+                        <div class="gen-rem-box">
+                            <span class="gen-rem-title">Free Gen Rem:</span>
+                            <span class="gen-rem-value">2</span>
+                        </div>
+                    </div>
+                </nav>
+                <button class="back-button" id="backButton"><i class="fas fa-arrow-left"></i> Back</button>
+                <div class="action-containers" id="actionContainers">
+                    <div class="action-box" id="setQuestionBox">
+                        <div class="action-icon"><i class="fas fa-plus-circle"></i></div>
+                        <div class="action-text">Set Question</div>
+                    </div>
+                    <div class="action-box" id="editQuestionBox">
+                        <div class="action-icon"><i class="fas fa-edit"></i></div>
+                        <div class="action-text">Edit Questions</div>
+                    </div>
+                    <div class="action-box">
+                        <div class="action-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="action-text">Generate Exam Script</div>
+                    </div>
+                </div>
+                <div class="set-questions" id="setQuestions">
+                    <h2>Set Questions</h2>
+                    <form id="questionForm">
+                        <div class="form-group">
+                            <label for="subject">Choose Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="maths">Mathematics</option>
+                                <option value="science">Science</option>
+                                <option value="english">English</option>
+                                <option value="history">History</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Choose Grade</label>
+                            <select id="grade" name="grade" required>
+                                <option value="">Select a grade</option>
+                                <option value="ss1">SS1</option>
+                                <option value="ss2">SS2</option>
+                                <option value="ss3">SS3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="questionType">Choose Question Type</label>
+                            <select id="questionType" name="questionType" required>
+                                <option value="">Select a question type</option>
+                                <option value="obj">Objective</option>
+                                <option value="theory">Theory</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="questionCount">Number of Questions</label>
+                            <input type="number" id="questionCount" name="questionCount" min="1" max="100" required>
+                        </div>
+                        <button type="submit" class="set-questions-btn">Set Questions</button>
+                    </form>
+                </div>
+                <div class="edit-questions" id="editQuestions">
+                    <h2>Edit Questions</h2>
+                    <div id="questionsList"></div>
+                </div>
+            </main>
+        </div>
+        <div class="floating-button" id="floatingButton"><i class="fas fa-plus"></i></div>
+    
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Question</h2>
+                <form id="editQuestionForm">
+                    <div class="form-group">
+                        <label for="questionText">Question</label>
+                        <textarea id="questionText" name="questionText" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionA">Option A</label>
+                        <input type="text" id="optionA" name="optionA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionB">Option B</label>
+                        <input type="text" id="optionB" name="optionB" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionC">Option C</label>
+                        <input type="text" id="optionC" name="optionC" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optionD">Option D</label>
+                        <input type="text" id="optionD" name="optionD" required>
+                    </div>
+                    <button type="submit" class="set-questions-btn">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const floatingButton = document.getElementById('floatingButton');
+            const actionContainers = document.getElementById('actionContainers');
+            const setQuestions = document.getElementById('setQuestions');
+            const editQuestions = document.getElementById('editQuestions');
+            const backButton = document.getElementById('backButton');
+            const questionForm = document.getElementById('questionForm');
+            const modal = document.getElementById('myModal');
+            const closeModal = document.getElementsByClassName('close')[0];
+            const setQuestionBox = document.getElementById('setQuestionBox');
+            const editQuestionBox = document.getElementById('editQuestionBox');
+            const questionsList = document.getElementById('questionsList');
+            const editQuestionForm = document.getElementById('editQuestionForm');
+    
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+    
+            document.addEventListener('click', (event) => {
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickOnMenuToggle = menuToggle.contains(event.target);
+    
+                if (!isClickInsideSidebar && !isClickOnMenuToggle && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+    
+            setQuestionBox.addEventListener('click', showSetQuestions);
+            floatingButton.addEventListener('click', showSetQuestions);
+            editQuestionBox.addEventListener('click', showEditQuestions);
+    
+            function showSetQuestions() {
+                actionContainers.style.display = 'none';
+                setQuestions.style.display = 'block';
+                editQuestions.style.display = 'none';
+                backButton.style.display = 'block';
+                floatingButton.style.display = 'none';
+                window.scrollTo(0, 0);
+            }
+    
+            function showEditQuestions() {
+                actionContainers.style.display = 'none';
+                setQuestions.style.display = 'none';
+                editQuestions.style.display = 'block';
+                backButton.style.display = 'block';
+                floatingButton.style.display = 'none';
+                window.scrollTo(0, 0);
+            }
+    
+            backButton.addEventListener('click', () => {
+                actionContainers.style.display = 'grid';
+                setQuestions.style.display = 'none';
+                editQuestions.style.display = 'none';
+                backButton.style.display = 'none';
+                floatingButton.style.display = 'flex';
+            });
+    
+            questionForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const subject = document.getElementById('subject').value;
+                const grade = document.getElementById('grade').value;
+                const questionType = document.getElementById('questionType').value;
+                const questionCount = document.getElementById('questionCount').value;
+    
+                generateQuestionContainers(subject, grade, questionType, questionCount);
+                showEditQuestions();
+            });
+    
+            function generateQuestionContainers(subject, grade, questionType, count) {
+                questionsList.innerHTML = '';
+                for (let i = 1; i <= count; i++) {
+                    const container = document.createElement('div');
+                    container.className = 'question-container';
+                    container.id = question-${i};
+                    container.innerHTML = 
+                        <div class="question-info">${grade} ${subject} Q${i} ${questionType}</div>
+                        <span class="edit-icon" data-question="${i}"><i class="fas fa-edit"></i></span>
+                        <div class="status-indicator unedited"></div>
+                    ;
+                    questionsList.appendChild(container);
+    
+                    const editIcon = container.querySelector('.edit-icon');
+                    editIcon.addEventListener('click', () => showEditModal(container, i, grade, subject, questionType));
+                }
+            }
+    
+            function showEditModal(container, questionNumber, grade, subject, questionType) {
+                modal.style.display = 'block';
+                document.querySelector('.modal-content h2').textContent = Edit Question ${questionNumber};
+                
+                // Reset form fields
+                editQuestionForm.reset();
+    
+                // Store reference to the current container being edited
+                editQuestionForm.dataset.container = container.id;
+            }
+    
+            closeModal.onclick = function() {
+                modal.style.display = 'none';
+            }
+    
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+    
+            editQuestionForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const containerId = editQuestionForm.dataset.container;
+                const container = document.getElementById(containerId);
+                if (container) {
+                    const statusIndicator = container.querySelector('.status-indicator');
+                    statusIndicator.classList.remove('unedited');
+                    statusIndicator.classList.add('edited');
+                }
+                console.log('Question edited:', {
+                    question: document.getElementById('questionText').value,
+                    optionA: document.getElementById('optionA').value,
+                    optionB: document.getElementById('optionB').value,
+                    optionC: document.getElementById('optionC').value,
+                    optionD: document.getElementById('optionD').value
+                });
+                modal.style.display = 'none';
+            });
+    
+            // Responsive adjustments
+            window.addEventListener('resize', adjustLayout);
+    
+            function adjustLayout() {
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.remove('active');
+                }
+            }
+    
+            adjustLayout();
+        </script>
+    </body>
+    </html>

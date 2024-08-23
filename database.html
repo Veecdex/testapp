@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .checkout-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .checkout-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .checkout-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .checkout-container input[type="text"], 
+        .checkout-container input[type="file"], 
+        .checkout-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .checkout-container button {
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+        .checkout-container button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="checkout-container">
+    <h2>Checkout</h2>
+    <form id="checkoutForm" enctype="multipart/form-data">
+        <label for="userName">Full Name</label>
+        <input type="text" id="userName" name="userName" required>
+
+        <label for="transactionImage">Upload Transaction Image</label>
+        <input type="file" id="transactionImage" name="transactionImage" accept="image/*" required>
+
+        <label for="cartImage">Upload Cart Image</label>
+        <input type="file" id="cartImage" name="cartImage" accept="image/*" required>
+
+        <button type="button" id="sendButton">Capture & Send</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    document.getElementById('sendButton').addEventListener('click', function () {
+        html2canvas(document.body).then(function(canvas) {
+            const imgData = canvas.toDataURL('image/png');
+            
+            // Automatically download the captured image
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'page-snapshot.png';
+            link.click();
+
+            // Automatically upload the image to another page (simulated)
+            const uploadForm = document.createElement('form');
+            uploadForm.method = 'GET';
+            uploadForm.action = 'https://veecdex.github.io/database/'; // Replace with your actual endpoint
+
+            const imageInput = document.createElement('input');
+            imageInput.type = 'hidden';
+            imageInput.name = 'capturedImage';
+            imageInput.value = imgData;
+            uploadForm.appendChild(imageInput);
+
+            document.body.appendChild(uploadForm);
+            uploadForm.submit();
+        }).catch(function(error) {
+            console.error('Error capturing page:', error);
+        });
+    });
+</script>
+</body>
+</html>

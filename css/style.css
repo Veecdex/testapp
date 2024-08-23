@@ -36,7 +36,8 @@ body {
   flex-direction: column;
   align-items: center;
   border-radius: 0 30px 30px 0;
-
+  background-color: rgba(0, 0, 0, 0.781);
+    backdrop-filter: blur(5px);
   margin-right: 20px;
   position: fixed;
   top: 0;
@@ -90,7 +91,7 @@ body {
 
   overflow-y: auto;
   margin-left: 100px;
-  padding-top: 100px; /* Adjusted to accommodate fixed header */
+  padding-top: 100px; /* Adjusted to accommodate fixed header   background: linear-gradient(45deg, var(--accent), #ebedee); */
 }
 
 .header {
@@ -101,7 +102,7 @@ body {
 
     background-color: transparent;
     backdrop-filter: blur(5px);
-  z-index: 999;
+  z-index: 999; 
   padding: 20px;
 }
 
@@ -118,6 +119,7 @@ body {
   background: linear-gradient(45deg, var(--accent), #00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  float: center;
 }
 
 .search-container {
@@ -128,7 +130,7 @@ body {
 .search-bar {
   width: 100%;
   padding: 12px 20px 12px 40px;
-  border: none;
+  border: 1px solid ;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--text-dark);
@@ -195,6 +197,9 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
   gap: 10px;
   justify-content: center;
+}
+.explore{
+  color: rgb(226, 223, 223);
 }
 
 .product-card {
@@ -341,6 +346,7 @@ body {
   .sidebar {
     display: none;
   }
+ 
   .sidebar-icon {
   font-size: 20px;
   margin-bottom: 5px;
@@ -394,9 +400,15 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   color: var(--text-light);
 }
+.light-mode .brand-name {
+  color: var(--text-light);
+}
+.light-mode .sidebar {
+  background-color: rgba(255, 255, 255, 0.781);
+}
 
 .light-mode .category,
-.light-mode .product-card {
+.light-mode .product-card ,.brand-name  {
   background-color: #ffffff;
 }
 
@@ -404,7 +416,10 @@ body {
   color: var(--text-light);
 
 }
-.light-mode  .bottom-nav {
+.light-mode  .explore {
+  color: rgb(31, 30, 30);
+}
+.light-mode  .bottom-nav  {
   color: var(--text-light);
   background-color: #ffffffda;
 }

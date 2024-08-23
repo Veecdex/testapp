@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -13,33 +14,39 @@
 <div id="content" class="app-container">
   <div class="sidebar">
     <div class="sidebar-item">
-      <i class="fas fa-home sidebar-icon"></i>
+      <i data-feather="home"></i>
       <span class="sidebar-text">Home</span>
     </div>
     <div class="sidebar-item" id="checkout-item" onclick="navigateTo('checkout.html')">
-      <i class="fas fa-money sidebar-icon" ></i>
+      <i data-feather="credit-card" ></i>
       <span class="sidebar-text">Checkout</span>
     </div>
     <div class="sidebar-item" id="contactIcon">
-      <i class="fas fa-envelope sidebar-icon"></i>
+      <i data-feather="mail"></i>
       <span class="sidebar-text">Contact</span>
     </div>
     <div class="sidebar-item" id="aboutIcon">
-      <i class="fas fa-info-circle sidebar-icon"></i>
+      <i data-feather="info"></i>
       <span class="sidebar-text">About</span>
     </div>
     <div class="sidebar-item" id="cartIcon">
-      <i class="fas fa-shopping-bag sidebar-icon"></i>
+      <i data-feather="shopping-bag"></i>
       <span class="sidebar-text">Cart</span>
       <span class="cart-indicator" id="cartCount">0</span>
     </div>
   </div>
-  
+
+
+
+
+
+
+
   <div id="content" class="main-content">
     <div class="header">
       <div class="brand-search">
         <div class="search-container">
-          <div style="margin-left: -50px;" class="brand-name" > <img style=" margin-left: -30px; width: 200px; height: 50px;" src="PANACHE.png" alt=""> <i style="margin-left: -50px;"> Panache wears</i></div>
+          <div style="margin-left: -50px;" class="brand-name" > <img style=" margin-left: -30px; width: 200px; height: 50px;" src="PANACHE.png" alt=""> <i style="margin-left: -50px;"> Panache wears</i></div>    
           <i style="margin-top: 33px;" class="fas fa-search search-icon"></i>
           <input type="text" class="search-bar" placeholder="Search panache wears..." id="searchInput">
         </div>
@@ -47,14 +54,14 @@
     </div>
     
     <div class="categories">
-      <div class="category active" data-category="all">All</div>
-      <div class="category" data-category="electronics">Electronics</div>
-      <div class="category" data-category="fashion">Fashion</div>
-      <div class="category" data-category="home">Home & Living</div>
-      <div class="category" data-category="beauty">Beauty</div>
-      <div class="category" data-category="sports">Sports</div>
-      <div class="category" data-category="fashion">Fashion</div>
-      <div class="category" data-category="home">Home & Living</div>
+      <div class="category active" data-category="all">All </div><img src="pdtim01.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div  class="category" data-category="electronics">Electronics</div><img src="pdtimg02.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div class="category" data-category="fashion">Fashion</div><img src="pdtimg03.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div class="category" data-category="home">Home & Living</div><img src="pdtimg04.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div class="category" data-category="beauty">Beauty</div><img src="pdtimg05.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div class="category" data-category="sports">Sports</div><img src="pdtimg06.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div class="category" data-category="fashion">Fashion</div><img src="pdtimg07.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
+      <div class="category" data-category="home">Home & Living</div><img src="pdtimg08.png" style=" position: relative; margin-left: -20px; margin-right: 15px; border-radius: 50px; height: 37px; width: 37px;" alt="">
       <div class="category" data-category="beauty">Beauty</div>
       <div class="category" data-category="electronics">Electronics</div>
       <div class="category" data-category="fashion">Fashion</div>
@@ -62,12 +69,11 @@
       <div class="category" data-category="beauty">Beauty</div>
     </div>
     
-    <h2 style="margin-bottom: 10px;">Explore Steeze</h2>
+    <h2 class="explore" style="margin-bottom: 10px;  " >Explore Steeze</h2>
     <div class="featured-products" id="productList">
       <!-- Products will be dynamically added here -->
 
 
-     
     </div>
    
     <div class="no-results" id="noResults" style="display: none; widows: 100px;">
@@ -80,23 +86,23 @@
 
 <div class="bottom-nav">
   <div class="sidebar-item" id="home-item">
-    <i class="fas fa-home sidebar-icon"></i>
+     <i  data-feather="home"></i>
     <span  class="sidebar-text">Home</span>
   </div>
   <div class="sidebar-item" id="checkout-item" onclick="navigateTo('checkout.html')">
-    <i class="fas fa-money sidebar-icon" ></i>
+    <i data-feather="credit-card"></i>
     <span class="sidebar-text">Checkout</span>
   </div>
   <div class="sidebar-item" id="contactIconMobile">
-    <i class="fas fa-envelope sidebar-icon"></i>
+    <i data-feather="mail"></i>
     <span class="sidebar-text">Contact</span>
   </div>
   <div class="sidebar-item" id="aboutIconMobile">
-    <i class="fas fa-info-circle sidebar-icon"></i>
+    <i data-feather="info"></i>
     <span class="sidebar-text">About</span>
   </div>
   <div class="sidebar-item" id="cartIconMobile">
-    <i class="fas fa-shopping-bag sidebar-icon"></i>
+    <i data-feather="shopping-bag"></i>
     <span class="sidebar-text">Cart</span>
     <span class="cart-indicator" id="cartCountMobile">0</span>
   </div>
@@ -163,6 +169,8 @@
     </p>
   </div>
 </div>
-
+<script>
+  feather.replace();
+</script>
 <script src="javascript/script.js"></script>
 </body></html>

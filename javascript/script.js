@@ -199,7 +199,7 @@ const products = [
       setTimeout(function() {
           document.getElementById('preloader').style.display = 'none';
           document.getElementById('content').style.display = 'block';
-      }, 20000); // Adjust the timeout duration as needed
+      }, 10000); // Adjust the timeout duration as needed
   });
   
 

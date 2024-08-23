@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Page</title>
    <link rel="stylesheet" href="css/font-awesome.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/cart.css">
@@ -15,16 +16,16 @@
     </div>   
     <div class="sidebar">
         <div class="sidebar-item">
-          <i class="fas fa-home sidebar-icon"></i>
+          <i  data-feather="home"></i>
           <span class="sidebar-text">Home</span>
         </div>
         <div  class="sidebar-item">
-          <i class="fas fa-money sidebar-icon"></i>
+          <i data-feather="credit-card"></i>
           <span class="sidebar-text">Checkout</span>
         </div>
      
         <div class="sidebar-item" id="cartIcon">
-          <i class="fas fa-shopping-bag sidebar-icon"></i>
+          <i   data-feather="shopping-bag"></i>
           <span class="sidebar-text">Cart</span>
           <span class="cart-indicator" id="cartCount">0</span>
         </div>
@@ -55,16 +56,16 @@
     </div>
     <div class="bottom-nav">
         <div class="sidebar-item" id="home-item" onclick="navigateTo('index.html')">
-          <i class="fas fa-home sidebar-icon" ></i>
+          <i  data-feather="home" ></i>
           <span class="sidebar-text">Home</span>
         </div>
         <div class="sidebar-item">
-          <i class="fas fa-money sidebar-icon"></i>
+          <i data-feather="credit-card"></i>
           <span class="sidebar-text">Checkout</span>
         </div>
    
         <div class="sidebar-item" id="cartIconMobile">
-          <i class="fas fa-shopping-bag sidebar-icon"></i>
+          <i data-feather="shopping-bag"></i>
           <span class="sidebar-text">Cart</span>
           <span class="cart-indicator" id="cartCountMobile">0</span>
         </div>
@@ -73,7 +74,9 @@
       <div class="mode-toggle" onclick="toggleMode()"> <i class="fas fa-star "></i></div>
       </div>
       <a href="index.html" class="back-to-shop">Back to Shop</a>
-
+      <script>
+        feather.replace();
+      </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script src="javascript/cart.js"></script>
